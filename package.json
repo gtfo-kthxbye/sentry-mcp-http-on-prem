@@ -1,5 +1,5 @@
 {
-  "name": "sentry-mcp",
+  "name": "sentry-mcp-http-on-prem",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -10,10 +10,10 @@
   "license": "FSL-1.1-ALv2",
   "author": "Sentry",
   "description": "Sentry MCP Server",
-  "homepage": "https://github.com/getsentry/sentry-mcp",
+  "homepage": "https://github.com/gtfo-kthxbye/sentry-mcp-http-on-prem",
   "keywords": ["sentry"],
   "bugs": {
-    "url": "https://github.com/getsentry/sentry-mcp/issues"
+    "url": "https://github.com/gtfo-kthxbye/sentry-mcp-http-on-prem/issues"
   },
   "repository": {
     "type": "git",
