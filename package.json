@@ -1,7 +1,7 @@
 {
   "name": "sentry-mcp-http-on-prem",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "type": "module",
   "packageManager": "pnpm@10.8.1",
   "engines": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:getsentry/sentry-mcp.git"
+    "url": "git@github.com:gtfo-kthxbye/sentry-mcp-http-on-prem.git"
   },
   "scripts": {
     "dev": "dotenv -e .env -e .env.local -- turbo dev",
