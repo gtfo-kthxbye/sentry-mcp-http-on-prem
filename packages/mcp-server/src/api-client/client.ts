@@ -75,12 +75,12 @@ export class SentryApiService {
   }) {
     this.accessToken = accessToken;
     this.host = host || "sentry.io";
-    this.apiPrefix = new URL("/api/0", `https://${this.host}`).href;
+    this.apiPrefix = new URL("/api/0", `http://${this.host}`).href;
   }
 
   setHost(host: string) {
     this.host = host;
-    this.apiPrefix = new URL("/api/0", `https://${this.host}`).href;
+    this.apiPrefix = new URL("/api/0", `http://${this.host}`).href;
   }
 
   private async request(
@@ -89,7 +89,7 @@ export class SentryApiService {
     { host }: { host?: string } = {},
   ): Promise<Response> {
     const url = host
-      ? new URL(`/api/0${path}`, `https://${host}`).href
+      ? new URL(`/api/0${path}`, `http://${host}`).href
       : `${this.apiPrefix}${path}`;
 
     const headers: Record<string, string> = {
@@ -140,14 +140,14 @@ export class SentryApiService {
 
   getIssueUrl(organizationSlug: string, issueId: string): string {
     return this.host !== "sentry.io"
-      ? `https://${this.host}/organizations/${organizationSlug}/issues/${issueId}`
-      : `https://${organizationSlug}.${this.host}/issues/${issueId}`;
+      ? `http://${this.host}/organizations/${organizationSlug}/issues/${issueId}`
+      : `http://${organizationSlug}.${this.host}/issues/${issueId}`;
   }
 
   getTraceUrl(organizationSlug: string, traceId: string): string {
     return this.host !== "sentry.io"
-      ? `https://${this.host}/organizations/${organizationSlug}/explore/traces/trace/${traceId}`
-      : `https://${organizationSlug}.${this.host}/explore/traces/trace/${traceId}`;
+      ? `http://${this.host}/organizations/${organizationSlug}/explore/traces/trace/${traceId}`
+      : `http://${organizationSlug}.${this.host}/explore/traces/trace/${traceId}`;
   }
 
   async listOrganizations(opts?: RequestOptions): Promise<OrganizationList> {
@@ -558,7 +558,7 @@ export class SentryApiService {
     return SpansSearchResponseSchema.parse(body).data;
   }
 
-  // POST https://us.sentry.io/api/0/issues/5485083130/autofix/
+  // POST http://us.sentry.io/api/0/issues/5485083130/autofix/
   async startAutofix(
     {
       organizationSlug,
@@ -588,7 +588,7 @@ export class SentryApiService {
     return AutofixRunSchema.parse(body);
   }
 
-  // GET https://us.sentry.io/api/0/issues/5485083130/autofix/
+  // GET http://us.sentry.io/api/0/issues/5485083130/autofix/
   async getAutofixState(
     {
       organizationSlug,
